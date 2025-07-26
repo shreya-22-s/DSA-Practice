@@ -1,3 +1,30 @@
+/*
+ 🔹 Question: Same Frequency Check
+ 🔹 Link: https://practice.geeksforgeeks.org/problems/same-frequency-characters/0
+
+ 🔹 Description:
+    Given a string `s` consisting of lowercase characters, check whether it is possible to make
+    all characters have the same frequency **after removing at most one character**.
+
+ 🔹 Examples:
+    Input: "aabbcc"     ➞ Output: true
+    Input: "aabbc"      ➞ Output: true
+    Input: "aabbcccc"   ➞ Output: false
+    Input: "abc"        ➞ Output: true
+
+ 🔹 Approach:
+    1. Use a HashMap to count the frequency of each character.
+    2. Use another HashMap to count how many characters have each frequency.
+    3. Three conditions for returning true:
+       ✅ All characters have the same frequency.
+       ✅ There are exactly 2 different frequencies and one occurs only once and is either:
+          - Frequency = 1 (can remove one character), or
+          - The difference between the frequencies is 1 and the higher one appears once.
+
+ 🔹 Time Complexity: O(n)
+ 🔹 Space Complexity: O(n)
+*/
+
 class Solution {
     boolean sameFreq(String s) {
         // code here
