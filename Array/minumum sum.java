@@ -2,16 +2,15 @@
  🔹 Question: Same Frequency Check
  🔹 Link: https://practice.geeksforgeeks.org/problems/same-frequency-characters/0
 
- 🔹 Description:
-    Given a string `s` consisting of lowercase characters, check whether it is possible to make
-    all characters have the same frequency **after removing at most one character**.
+ Given a string s consisting only lowercase alphabetic characters, check whether it is 
+ possible to remove at most one character such that the  frequency of each distinct character in
+ the string becomes same. Return true if it is possible; otherwise, return false.
 
- 🔹 Examples:
-    Input: "aabbcc"     ➞ Output: true
-    Input: "aabbc"      ➞ Output: true
-    Input: "aabbcccc"   ➞ Output: false
-    Input: "abc"        ➞ Output: true
+ Examples:
 
+  Input: s = "xyyz"
+  Output: true 
+  Explanation: Removing one 'y' will make frequency of each distinct character to be 1.
  🔹 Approach:
     1. Use a HashMap to count the frequency of each character.
     2. Use another HashMap to count how many characters have each frequency.
