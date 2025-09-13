@@ -1,0 +1,53 @@
+import java.util.*;
+
+public class Solution {
+    // DFS function to detect cycle in an undirected graph
+    private boolean dfs(int u, int parent, boolean[] visited, List<Integer>[] adj) {
+        visited[u] = true;
+
+        for (int v : adj[u]) {
+            if (!visited[v]) {
+                if (dfs(v, u, visited, adj)) return true;
+            } else if (v != parent) {
+                // Found a visited neighbor that is not parent → cycle exists
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Main function to check cycle
+    public boolean isCycle(int V, int[][] edges) {
+        // Build adjacency list
+        List<Integer>[] adj = new ArrayList[V];
+        for (int i = 0; i < V; i++) adj[i] = new ArrayList<>();
+
+        for (int[] e : edges) {
+            adj[e[0]].add(e[1]);
+            adj[e[1]].add(e[0]); // undirected graph
+        }
+
+        boolean[] visited = new boolean[V];
+
+        // Check all components
+        for (int i = 0; i < V; i++) {
+            if (!visited[i]) {
+                if (dfs(i, -1, visited, adj)) return true;
+            }
+        }
+        return false;
+    }
+
+    // Runner
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+
+        int V1 = 4;
+        int[][] edges1 = {{0, 1}, {0, 2}, {1, 2}, {2, 3}};
+        System.out.println("Example 1: " + sol.isCycle(V1, edges1)); // true
+
+        int V2 = 4;
+        int[][] edges2 = {{0, 1}, {1, 2}, {2, 3}};
+        System.out.println("Example 2: " + sol.isCycle(V2, edges2)); // false
+    }
+}
