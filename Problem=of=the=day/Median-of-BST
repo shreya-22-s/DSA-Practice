@@ -1,0 +1,38 @@
+
+---
+
+## 🧠 Approach
+1. Perform **inorder traversal** to get sorted node values.
+2. Calculate total number of nodes `n`.
+3. Use 1-based median formula:
+   - Odd → element at index `(n + 1)/2`
+   - Even → element at index `n/2`
+4. Convert 1-based index to 0-based for `ArrayList`.
+
+---
+
+## 💻 Code Implementation
+```java
+class Solution {
+    public static ArrayList<Integer> inorder(Node node) {
+        ArrayList<Integer> a = new ArrayList<>();
+        if (node == null) return a;
+
+        a.addAll(inorder(node.left));
+        a.add(node.data);
+        a.addAll(inorder(node.right));
+        return a;
+    }
+
+    public int findMedian(Node root) {
+        ArrayList<Integer> inorderList = inorder(root);
+        int n = inorderList.size();
+
+        if (n % 2 == 0)
+            return inorderList.get((n / 2) - 1);  // even → V(n/2)
+        else
+            return inorderList.get(((n + 1) / 2) - 1);  // odd → V((n+1)/2)
+    }
+}
+T.C: O(n)
+S.C:O(n)
