@@ -23,4 +23,20 @@ You are given an integer array `nums` of size `n`.
 
 ---
 
-🔸 **Example**
+# 🧮 Find Median of a Binary Search Tree (BST)
+
+This repository contains a Java solution for finding the **median of a Binary Search Tree (BST)**.  
+It follows the GeeksforGeeks-style definition:
+
+- If number of nodes `n` is **odd**, median = `V((n + 1) / 2)`
+- If number of nodes `n` is **even**, median = `V(n / 2)`
+  
+Here, `V1, V2, V3, …, Vn` represent the BST nodes in **ascending order** (inorder traversal).
+
+---
+
+## 🚀 Problem Statement
+Given the root of a Binary Search Tree, find the **median** of its node values.
+
+### Example 1
+
