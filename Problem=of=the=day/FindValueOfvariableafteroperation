@@ -1,0 +1,50 @@
+/*
+ * Problem: Final Value of Variable After Performing Operations
+ *
+ * Description:
+ * There is a programming language with only four operations and one variable X:
+ *   - "++X" and "X++" increment the value of X by 1.
+ *   - "--X" and "X--" decrement the value of X by 1.
+ *
+ * Initially, X = 0.
+ * Given an array of strings operations, return the final value of X after performing all operations.
+ *
+ * Example:
+ * Input:  operations = ["--X", "X++", "X++"]
+ * Output: 1
+ *
+ * Constraints:
+ * 1 <= operations.length <= 100
+ * operations[i] is one of ["++X", "X++", "--X", "X--"].
+ */
+
+public class FinalValueAfterOperations {
+
+    public static int finalValueAfterOperations(String[] operations) {
+        int X = 0;
+
+        // Iterate through each operation
+        for (String op : operations) {
+            // Increment or decrement based on the operation
+            if (op.equals("++X") || op.equals("X++")) {
+                X += 1;
+            } else if (op.equals("--X") || op.equals("X--")) {
+                X -= 1;
+            }
+        }
+
+        return X;
+    }
+
+    // Example usage for testing
+    public static void main(String[] args) {
+        String[] operations1 = {"--X", "X++", "X++"};
+        System.out.println(finalValueAfterOperations(operations1)); // Output: 1
+
+        String[] operations2 = {"++X", "++X", "X++"};
+        System.out.println(finalValueAfterOperations(operations2)); // Output: 3
+
+        String[] operations3 = {"X++", "++X", "--X", "X--"};
+        System.out.println(finalValueAfterOperations(operations3)); // Output: 0
+    }
+}
