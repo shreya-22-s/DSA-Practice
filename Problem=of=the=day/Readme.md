@@ -35,8 +35,23 @@ Here, `V1, V2, V3, …, Vn` represent the BST nodes in **ascending order** (inor
 
 ---
 
-## 🚀 Problem Statement
-Given the root of a Binary Search Tree, find the **median** of its node values.
+# 🧮 Final Value After Performing Operations
 
-### Example 1
+## 📖 Problem Description
 
+There is a programming language with only four operations and one variable `X`:
+
+- `++X` and `X++` increment the value of `X` by **1**.  
+- `--X` and `X--` decrement the value of `X` by **1**.  
+
+Initially, the value of `X` is **0**.
+
+Given an array of strings `operations`, return the **final value of `X`** after performing all the operations.
+
+---
+
+## 💡 Example 1
+
+**Input:**
+```java
+operations = ["--X", "X++", "X++"]
