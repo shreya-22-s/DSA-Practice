@@ -55,3 +55,58 @@ Given an array of strings `operations`, return the **final value of `X`** after 
 **Input:**
 ```java
 operations = ["--X", "X++", "X++"]
+Problem Statement
+
+You are given an integer array nums and two integers k and numOperations.
+
+You can perform at most numOperations operations, and in each operation you can:
+
+Select an index i that has not been selected before.
+
+Add any integer from the range [-k, k] to nums[i].
+
+Your task is to maximize the frequency of any element in the array after performing all operations.
+
+Examples
+Example 1
+Input: nums = [1, 4, 5], k = 1, numOperations = 2
+Output: 2
+Explanation:
+- Add 0 to nums[1] → nums = [1,4,5]
+- Add -1 to nums[2] → nums = [1,4,4]
+Maximum frequency = 2
+
+Example 2
+Input: nums = [5, 11, 20, 20], k = 5, numOperations = 1
+Output: 2
+Explanation: Only one operation can be performed. Maximum frequency achievable = 2.
+
+Example 3
+Input: nums = [88, 53], k = 27, numOperations = 2
+Output: 2
+Explanation:
+- 88 → 70 (−18)
+- 53 → 70 (+17)
+Both elements become 70. Frequency = 2
+
+Example 4
+Input: nums = [1, 90], k = 76, numOperations = 1
+Output: 1
+Explanation:
+No two numbers can be made equal with just one operation.
+
+Approach
+
+Compute a frequency array for all numbers in nums.
+
+Compute cumulative sums to quickly calculate the number of elements in any range.
+
+For each possible target value:
+
+Determine how many elements can be converted to this target using ±k.
+
+Limit the number of conversions by numOperations.
+
+Track the maximum frequency achievable.
+
+Return the maximum frequency.
